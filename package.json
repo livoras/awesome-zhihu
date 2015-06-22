@@ -1,0 +1,22 @@
+{
+  "name": "zhihu-wanzan",
+  "version": "0.0.1",
+  "description": "\"Awesome Zhihu\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "zhihu"
+  ],
+  "author": "Livoras",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "jsdom": "^5.4.3",
+    "jsonfile": "^2.0.1",
+    "lodash": "^3.9.3",
+    "request": "^2.58.0",
+    "tough-cookie": "^2.0.0"
+  }
+}
