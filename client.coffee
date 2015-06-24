@@ -27,7 +27,7 @@ opt =
     "Pragma": "no-cache"
     "Proxy-Connection": "keep-alive"
   gzip: yes
-  #proxy: "http://web-proxy.oa.com:8080"
+  proxy: "http://web-proxy.oa.com:8080"
 
 LOGIN_URL = "http://www.zhihu.com/login"
 ZHIHU_URL = "http://www.zhihu.com"
@@ -59,6 +59,10 @@ loopQuestions = ->
   opt.url = "http://www.zhihu.com/question/#{questionID}"
   opt.method = "GET"
   request opt, (err, res, body)->
+    if err 
+      questionID--
+      loopQuestions()
+      console.log "Error: ", err
     console.log "Doing #{questionID} ===== Count : #{questions.length}"
     if res.statusCode is 200
       console.log "Good: #{questionID}"
