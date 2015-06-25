@@ -11,7 +11,7 @@ jsdom.env "<html><body></body></html>", (err, win)->
   getXSRF login
 
 QUSTION_FILE = "questions.json"
-questionID = 82312
+questionID = 234887
 questions = []
 
 opt = 
@@ -59,10 +59,10 @@ loopQuestions = ->
   opt.url = "http://www.zhihu.com/question/#{questionID}"
   opt.method = "GET"
   request opt, (err, res, body)->
-    if err 
+    if err or not res
       questionID--
-      loopQuestions()
       console.log "Error: ", err
+      return loopQuestions()
     console.log "Doing #{questionID} ===== Count : #{questions.length}"
     if res.statusCode is 200
       console.log "Good: #{questionID}"
